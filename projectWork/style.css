@@ -1,0 +1,632 @@
+:root {
+    --yellow: #eedc00;
+    --yellow-hover: #ffec00;
+    --blue: #0047bb;
+    --text-color: #4a4a4a;
+    --border-color: #dcdcdc;
+    --white: #ffffff;
+    --white-smoke: #f6f6f6;
+
+    --item1: #d3ebef;
+    --item1-hover: #9bdce7;
+    --item2: #ffe0c6;
+    --item2-hover: #eeb789;
+    --item3: #d3ceec;
+    --item3-hover: #ada1e9;
+    --item4: #ffd5de;
+    --item4-hover: #f39bae;
+    --item5: #fff6bf;
+    --item5-hover: #ffec77;
+    --item6: #d0e5e3;
+    --item6-hover: #9ad7d1;
+    --item7: #deefdb;
+    --item7-hover: #a6ec9a;
+    --item8: #d2d9f1;
+    --item8-hover: #9fb0ec;
+}
+
+
+/* Regola per caricare il font locale inserito nel progetto  */
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/SegoeUI.eot') format('embedded-opentype'), /* Supportato da vecchie versioni di Internet Explorer (precedenti alla versione 9) */
+        url('fonts/SegoeUI.woff2') format('woff2'), /* Supportato dai browser moderni Chrome, Firefox, Safari, Edge e Opera */
+        url('fonts/SegoeUI.woff') format('woff'), /* Supportato da tutti i principali browser, inclusi quelli più vecchi come Internet Explorer 9+ */
+        url('fonts/SegoeUI.ttf') format('truetype'); /*  Supportato da molti browser, ma meno compresso rispetto a WOFF e WOFF2 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/SegoeUI-SemiBold.eot') format('embedded-opentype'), /* Supportato da vecchie versioni di Internet Explorer (precedenti alla versione 9) */
+        url('fonts/SegoeUI-SemiBold.woff2') format('woff2'), /* Supportato dai browser moderni Chrome, Firefox, Safari, Edge e Opera */
+        url('fonts/SegoeUI-SemiBold.woff') format('woff'), /* Supportato da tutti i principali browser, inclusi quelli più vecchi come Internet Explorer 9+ */
+        url('fonts/SegoeUI-SemiBold.ttf') format('truetype'); /* Supportato da molti browser, ma meno compresso rispetto a WOFF e WOFF2 */
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/SegoeUI-Bold.eot') format('embedded-opentype'), /* Supportato da vecchie versioni di Internet Explorer (precedenti alla versione 9) */
+        url('fonts/SegoeUI-Bold.woff2') format('woff2'), /* Supportato dai browser moderni Chrome, Firefox, Safari, Edge e Opera */
+        url('fonts/SegoeUI-Bold.woff') format('woff'), /* Supportato da tutti i principali browser, inclusi quelli più vecchi come Internet Explorer 9+ */
+        url('fonts/SegoeUI-Bold.ttf') format('truetype'); /*  Supportato da molti browser, ma meno compresso rispetto a WOFF e WOFF2 */
+    font-weight: bold;
+    font-style: normal;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'MyFont', sans-serif;
+    background-color: var(--white-smoke);
+}
+
+/* LOADER */
+
+.bgLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    opacity: 1;
+    animation: opacity 4s forwards;
+    z-index: 1000;
+}
+
+.bgLoader .containerLoader {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bgLoader .containerLoader .loader {
+    position: relative;
+    border: 4px solid var(--white);
+    border-top: 4px solid var(--yellow);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+.containerLoader .image {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* animazione per lo spinner del caricamento */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* animazione di opacità per il caricamento */
+@keyframes opacity {
+    to {
+        opacity: 0.8;
+    }
+}
+
+/********************************************************/
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+    box-shadow: 0 0 4px var(--text-color);
+    background-color: var(--white);
+}
+
+header .top-header {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    background-color: var(--white-smoke);
+    text-align: center;
+}
+
+header .sub-header {
+    width: 68rem;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header .top-header a,
+header .sub-header a {
+    color: var(--text-color);
+    text-decoration: unset;
+}
+
+header .top-header a:hover,
+header .sub-header a:hover {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+header .top-header .image {
+    height: 1.25rem;
+    padding: 0 1rem;
+    vertical-align: text-bottom;
+}
+
+header .sub-header .image {
+    padding: 1rem;
+    vertical-align: middle;
+    background-color: var(--yellow);
+}
+
+header .top-header a {
+    font-size: 0.75rem;
+    padding: 0 1rem;
+}
+
+header .sub-header a {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+}
+
+header .sub-header a.active {
+    font-weight: bold;
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+header .mobile-header {
+    display: none;
+    background-color: var(--yellow);
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+header .mobile-header .toggle-btn {
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--blue);
+    background-color: var(--yellow);
+}
+
+header .mobile-header .download-btn img {
+    width: 1.5rem;
+    height: auto;
+}
+
+/********************************************************/
+
+/* SIDEBAR */
+
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 6rem;
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--yellow);
+
+    /* in questo modo la sidebar viene nascosta quando è chiusa */
+    left: -100%;
+    transition: left 0.3s;
+}
+
+/* questa classe viene attivata quando la sidebar è aperta */
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+/********************************************************/
+
+/* MAIN CONTENT */
+
+.main {
+    width: 68rem;
+    height: auto;
+    text-align: start;
+    margin: 10rem auto 0 auto;
+    background-color: var(--white-smoke);
+}
+
+.main .stickyElem {
+    position: sticky;
+    top: 6rem;
+    z-index: 1;
+    padding: 1rem 0;
+    background-color: var(--white-smoke);
+}
+
+.main .stickyElem h4 {
+    margin: 1rem 0;
+}
+
+.main .stickyElem .titleItem {
+    color: var(--item1-hover);
+}
+
+.main .stickyElem .containItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 1rem;
+
+    /* codice per la visualizzazione da mobile */
+    /* Evita che gli elementi vadano a capo */
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.main .stickyElem .containItem .item {
+    width: 6rem;
+    height: 5rem;
+    margin: 0.5rem 0.2rem;
+    background-color: var(--white);
+}
+
+.main .stickyElem .containItem .item .activeLine {
+    width: 96%;
+    margin-top: 10px;
+    border: 2px solid var(--blue);
+    display: none;
+}
+
+/* Per migliorare l'esperienza utente sui dispositivi touch */
+/* Nasconde la scrollbar su WebKit */
+.main .stickyElem .containItem::-webkit-scrollbar,
+.main .containElem .elem {
+    display: none;
+}
+
+.main .containElem .elem:nth-child(1) {
+    display: block;
+}
+
+.main .stickyElem .containItem .item.item1 {
+    border: 4px solid var(--item1);
+}
+
+.main .stickyElem .containItem .item.item1:hover {
+    border: 4px solid var(--item1-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item2 {
+    border: 4px solid var(--item2);
+}
+
+.main .stickyElem .containItem .item.item2:hover {
+    border: 4px solid var(--item2-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item3 {
+    border: 4px solid var(--item3);
+}
+
+.main .stickyElem .containItem .item.item3:hover {
+    border: 4px solid var(--item3-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item4 {
+    border: 4px solid var(--item4);
+}
+
+.main .stickyElem .containItem .item.item4:hover {
+    border: 4px solid var(--item4-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item5 {
+    border: 4px solid var(--item5);
+}
+
+.main .stickyElem .containItem .item.item5:hover {
+    border: 4px solid var(--item5-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item6 {
+    border: 4px solid var(--item6);
+}
+
+.main .stickyElem .containItem .item.item6:hover {
+    border: 4px solid var(--item6-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item7 {
+    border: 4px solid var(--item7);
+}
+
+.main .stickyElem .containItem .item.item7:hover {
+    border: 4px solid var(--item7-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item.item8 {
+    border: 4px solid var(--item8);
+}
+
+.main .stickyElem .containItem .item.item8:hover {
+    border: 4px solid var(--item8-hover);
+    cursor: pointer;
+}
+
+.main .stickyElem .containItem .item img {
+    width: 6rem;
+    height: auto;
+}
+
+.main .stickyElem .containItem .download-btn {
+    padding: 0.2rem;
+    margin: 0.5rem 0.2rem;
+    border: 4px solid var(--yellow);
+    text-decoration: unset;
+}
+
+.main .stickyElem .containItem .download-btn img {
+    width: 1.3rem;
+    height: auto;
+    margin-left: 0.5rem;
+    vertical-align: text-top;
+}
+
+.main .stickyElem .containItem .download-btn:hover {
+    border: 4px solid var(--yellow-hover);
+    background-color: var(--yellow-hover);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main .containElem .elem h3,
+.main .otherSection h3 {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.main .containElem .elem .mediaContainer,
+.main .otherSection .mediaContainer {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+}
+
+.main .containElem .elem .mediaContainer video {
+    width: 35rem;
+    height: auto;
+    margin-right: 2rem;
+}
+
+.main .containElem .elem .mediaContainer img {
+    width: 30rem;
+    margin-left: 2rem;
+}
+
+.main .containElem .elem .mediaContainer .bollino {
+    width: 20rem;
+}
+
+.main .containElem .elem .mediaContainer .image {
+    width: 100%;
+    margin-left: 0;
+}
+
+.main .containElem .elem .mediaContainer .text p {
+    margin: 0;
+}
+
+.main .containElem .elem .mediaContainer .text span {
+    font-weight: bold;
+}
+
+.main .containElem .elem .mediaContainer .text.frame {
+    width: fit-content;
+    height: auto;
+    margin-right: 1rem;
+}
+
+/********************************************************/
+
+
+/* FOOTER */
+
+.top-footer,
+.sub-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.top-footer {
+    background-color: var(--yellow);
+    padding: 3rem 0;
+}
+
+.top-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sub-footer {
+    background-color: var(--white-smoke);
+    padding: 3rem 0;
+}
+
+.top-footer .image,
+.top-footer .containerSocial,
+.top-footer .info1,
+.top-footer .info2,
+.sub-footer .info,
+.sub-footer .image {
+    width: 25rem;
+}
+
+.sub-footer .info p {
+    margin: 0;
+}
+
+.top-footer .containerSocial a {
+    text-decoration: none;
+}
+
+/********************************************************/
+
+@media (max-width: 1140px) {
+    header .sub-header a {
+        padding: 0.3rem;
+    }
+
+    header .sub-header,
+    .main {
+        width: 100%;
+    }
+
+    .main .stickyElem,
+    .main .containElem,
+    .main .otherSection {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 1040px) {
+    .main .containElem .elem .mediaContainer {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .main .containElem .elem .mediaContainer .text {
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main .stickyElem .containItem {
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 975px) {
+
+    header .sub-header,
+    .main .stickyElem .containItem .download-btn {
+        display: none;
+    }
+
+    header .mobile-header {
+        display: flex;
+    }
+
+    header .top-header a {
+        padding: 0 0.5rem;
+    }
+
+    .top-footer,
+    .sub-footer {
+        align-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .top-footer .image,
+    .sub-footer .image {
+        margin-bottom: 2rem;
+    }
+
+    .top-footer .image,
+    .top-footer .containerSocial,
+    .top-footer .info1,
+    .top-footer .info2,
+    .sub-footer .info,
+    .sub-footer .image {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: block;
+        z-index: 2;
+    }
+
+    .main .stickyElem {
+        padding: 1rem;
+    }
+
+    .main .containElem .elem .mediaContainer,
+    .main .otherSection .mediaContainer {
+        border: none;
+        padding: 0;
+        background-color: unset;
+    }
+
+    .main .containElem .elem .mediaContainer video {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .main .containElem .elem .mediaContainer img {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 390px) {
+    header .top-header a {
+        padding: 0 0.2rem;
+    }
+
+    header .top-header .image {
+        padding: 0;
+    }
+}

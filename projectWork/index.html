@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <!-- elementi per specificare l'autore, la descrizione, le keywords e la visualizzazione da dare alle pagine -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Raffaele Sansone">
+    <meta name="description" content="Poste Italiane - Report Sostenibilità">
+    <meta name="keywords" content="Poste Italiane, Report Sostenibilità">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- titolo della pagina -->
+    <title>Sostenibilità</title>
+
+    <!-- icona che appare nella scheda del browser -->
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <!-- file css che include lo stile grafico delle pagine -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="loadPage()">
+    <!-- LOADER -->
+    <div id="loader" class="bgLoader"></div>
+    <!--  -->
+
+    <!-- HEADER -->
+    <header id="header"></header>
+    <!--  -->
+
+    <!-- SIDEBAR -->
+    <div id="containerSidebar"></div>
+    <!--  -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main" id="main">
+
+        <!-- INTRODUZIONE -->
+        <div class="otherSection">
+            <h3>CONTRIBUIRE ALLO SVILUPPO DELL’ITALIA</h3>
+
+            <div class="mediaContainer">
+                <div class="text">
+                    <p>
+                        Per la nostra storia, le dimensioni, la capillarità della nostra rete, la fiducia da parte dei
+                        cittadini,
+                        ricopriamo un ruolo unico nel tessuto economico, produttivo e sociale italiano. <br /><br />
+
+                        La nostra strategia di sostenibilità, quindi, rappresenta una chiave per conseguire gli
+                        obiettivi di
+                        business, ma soprattutto per fare da guida nelle trasformazioni dell’Italia, creando valore
+                        condiviso per le
+                        comunità in cui operiamo, assicurando l’inclusione sociale e garantendo il benessere delle
+                        nostre persone. <br /><br />
+
+                        Il modello di business di Poste Italiane è in continua evoluzione e si adatta alle esigenze
+                        dettate dal
+                        contesto economico e sociale e alle istanze degli stakeholder aziendali, pur mantenendo fermi
+                        nel tempo i
+                        propri valori e principi. Questo ci consente di avere il supporto necessario per gestire con
+                        successo i
+                        rischi e le opportunità che si presentano e raggiungere la sostenibilità nel lungo periodo.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+
+        <!-- MENU -->
+        <div class="stickyElem">
+            <h4>I Pilastri di Poste: <span id="titleItem" class="titleItem">INTEGRITÀ E TRASPARENZA</span> </h4>
+
+            <div class="containItem">
+                <div class="item item1" style="border-color: var(--item1-hover);" id="item1"
+                    onclick="changeTitle('INTEGRITÀ E TRASPARENZA', '#9bdce7')">
+                    <img src="./images/Integrita-cc.jpg" alt="err_img" />
+                    <hr id="line1" class="activeLine" style="display: block;" />
+                </div>
+
+                <div class="item item2" id="item2" onclick="changeTitle('VALORIZZAZIONE DELLE PERSONE', '#eeb789')">
+                    <img src="./images/Valorizzazione-cc.jpg" alt="err_img" />
+                    <hr id="line2" class="activeLine" />
+                </div>
+
+                <div class="item item3" id="item3" onclick="changeTitle('DIVERSITÀ E INCLUSIONE', '#ada1e9')">
+                    <img src="./images/Diversita-cc.jpg" alt="err_img" />
+                    <hr id="line3" class="activeLine" />
+                </div>
+
+                <div class="item item4" id="item4" onclick="changeTitle('VALORE AL TERRITORIO', '#f39bae')">
+                    <img src="./images/Sostegno-cc.jpg" alt="err_img" />
+                    <hr id="line4" class="activeLine" />
+                </div>
+
+                <div class="item item5" id="item5" onclick="changeTitle('CUSTOMER EXPERIENCE', '#ffec77')">
+                    <img src="./images/Customer-cc.jpg" alt="err_img" />
+                    <hr id="line5" class="activeLine" />
+                </div>
+
+                <div class="item item6" id="item6" onclick="changeTitle('INNOVAZIONE', '#9ad7d1')">
+                    <img src="./images/Innovazione-cc.jpg" alt="err_img" />
+                    <hr id="line6" class="activeLine" />
+                </div>
+
+                <div class="item item7" id="item7" onclick="changeTitle('TRANSIZIONE GREEN', '#a6ec9a')">
+                    <img src="./images/Decarboizzazione-cc.jpg" alt="err_img" />
+                    <hr id="line7" class="activeLine" />
+                </div>
+
+                <div class="item item8" id="item8" onclick="changeTitle('FINANZA SOSTENIBILE', '#9fb0ec')">
+                    <img src="./images/Finanza-cc.jpg" alt="err_img" />
+                    <hr id="line8" class="activeLine" />
+                </div>
+
+                <div class="download-btn" href="" onclick="scrollToDownload('download')">
+                    <span>Archivio Bilanci</span>
+                    <img src="./images/direct-download.png" alt="err_img" />
+                </div>
+            </div>
+        </div>
+        <!--  -->
+
+        <div class="containElem">
+            <!-- INTEGRITÀ E TRASPARENZA -->
+            <div class="elem" id="elem1"></div>
+
+            <!-- VALORIZZAZIONE DELLE PERSONE -->
+            <div class="elem" id="elem2"></div>
+
+            <!-- DIVERSITÀ E INCLUSIONE -->
+            <div class="elem" id="elem3"></div>
+
+            <!-- VALORE AL TERRITORIO -->
+            <div class="elem" id="elem4"></div>
+
+            <!-- CUSTOMER EXPERIENCE -->
+            <div class="elem" id="elem5"></div>
+
+            <!-- INNOVAZIONE -->
+            <div class="elem" id="elem6"></div>
+
+            <!-- TRANSIZIONE GREEN -->
+            <div class="elem" id="elem7"></div>
+
+            <!-- FINANZA SOSTENIBILE -->
+            <div class="elem" id="elem8"></div>
+        </div>
+
+        <!-- SEZIONE DOWNLOAD -->
+        <div class="otherSection" id="download">
+            <h3>Archivio Bilanci</h3>
+
+            <div class="mediaContainer">
+                <div class="text">
+                    <img src="./images/list-file-pdf.png" alt="err_img" />
+                    <a href="./download/Sintesi-Bilancio-Integrato-2023-interattivo-ITA.pdf" download>
+                        Bilancio Integrato2023 - Sintesi
+                    </a>
+
+                    <br />
+
+                    <img src="./images/list-file-pdf.png" alt="err_img" />
+                    <a href="./download/Relazione-Finanziaria-Annuale-2023-ita.pdf" download>
+                        Relazione FinanziariaAnnuale 2023
+                    </a>
+
+                    <br />
+
+                    <img src="./images/list-file-pdf.png" alt="err_img" />
+                    <a href="./download/Report_sostenibilita_ITA.pdf" download>
+                        Bilancio di Sostenibilità 2017
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+    <!--  -->
+
+    <!-- FOOTER -->
+    <footer id="footer"></footer>
+    <!--  -->
+
+    <!-- componenti header, sidebar, footer e loader importati per una maggior la leggibilità del codice -->
+    <script defer src="./components/header.js"></script>
+    <script defer src="./components/sidebar.js"></script>
+    <script defer src="./components/footer.js"></script>
+    <script defer src="./components/loader.js"></script>
+
+    <!-- sezioni inerenti al menu con classe "stickyElem" importate per una maggior leggibilità del codice -->
+    <script defer src="./components/elem1.js"></script>
+    <script defer src="./components/elem2.js"></script>
+    <script defer src="./components/elem3.js"></script>
+    <script defer src="./components/elem4.js"></script>
+    <script defer src="./components/elem5.js"></script>
+    <script defer src="./components/elem6.js"></script>
+    <script defer src="./components/elem7.js"></script>
+    <script defer src="./components/elem8.js"></script>
+
+    <!-- funzioni javascript inserite in un file.js apposito per migliorare la leggibilità del codice -->
+    <script defer src="./components/script.js"></script>
+</body>
+
+</html>
